@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from Cython.Build import cythonize
+try:
+    from Cython.Build import cythonize
+except ImportError:
+    # create closure for deferred import
+    def cythonize (*args, ** kwargs ):
+        from Cython.Build import cythonize
+        return cythonize(*args, ** kwargs)
+
 from setuptools import setup
 from setuptools.extension import Extension
 
