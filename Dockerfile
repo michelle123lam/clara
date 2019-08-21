@@ -9,8 +9,9 @@ RUN yum install -y python-devel python-pip gcc make Cython lpsolve-devel git
 
 # Install clara
 WORKDIR /root/
-RUN git clone "https://github.com/iradicek/clara"
+RUN git clone "https://github.com/michelle123lam/clara"
 WORKDIR /root/clara
+RUN pip install Cython
 RUN make install
 
 # Add new user
